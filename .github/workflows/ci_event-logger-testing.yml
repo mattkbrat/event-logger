@@ -16,9 +16,10 @@ jobs:
           go-version: ${{ matrix.go-version }}
       # You can test your matrix by printing the current Go version
       - name: Display Go version
-        working-directory: ./event-logger
+        working-directory: ./producer
         run: go version
       - name: List directory
         run: ls -l
       - name: Run producer tests
-        run: cd ./event-logger/producer && go test
+        working-directory: ./producer
+        run: go test
